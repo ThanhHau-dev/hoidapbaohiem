@@ -40,9 +40,18 @@ popUpMessBtn.addEventListener("click", () => {
     infor: popUpMessEmail.value.trim(),
   };
 
-  console.log(data);
+//   Gửi mail
+  emailjs
+    .send("service_96kzaxe", "template_96zl9sf", data)
+    .then((result) => {
+      console.log("Đã gửi thông tin thành công !", result.text);
+      alert("Chúng tôi sẽ sớm trả lời câu hỏi của bạn");
+    })
 
-  alert("Chúng tôi sẽ sớm trả lời câu hỏi của bạn!");
+    .catch((error) => {
+      console.error("Lỗi khi gửi tin nhắn: ", error);
+      alert("Có lỗi xảy ra khi gửi. Vui lòng thử lại !");
+    });
 
   // Ẩn popup và reset dữ liệu
   popUpMessDaddy.style.display = "none";

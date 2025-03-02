@@ -34,14 +34,16 @@
     </header>
 
     <div class="popup__message__daddy">
-    <div class="popup__message">
-      <h4>
-        Nhận câu trả lời của bạn qua Email hoặc số điện thoại !
-      </h4>
+      <div class="popup__message">
+        <h4>Nhận câu trả lời của bạn qua Email hoặc số điện thoại !</h4>
 
-      <input class="popup__message__email" type="text" placeholder="Email hoặc số điện thoại">
-      <button class="popup__message__btn">Gửi</button>
-    </div>
+        <input
+          class="popup__message__email"
+          type="text"
+          placeholder="Email hoặc số điện thoại"
+        />
+        <button class="popup__message__btn">Gửi</button>
+      </div>
     </div>
 
     <main class="main">
@@ -77,6 +79,19 @@
     </main>
 
     <footer class="footer"></footer>
+
+    <!-- emialjs -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "w15JVV1AB96-f0lko",
+        });
+      })();
+    </script>
 
     <script src="anhhong.js"></script>
   </body>
