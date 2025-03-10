@@ -40,12 +40,12 @@ popUpMessBtn.addEventListener("click", () => {
     infor: popUpMessEmail.value.trim(),
   };
 
-//   Gửi mail
+  //   Gửi mail
   emailjs
     .send("service_96kzaxe", "template_96zl9sf", data)
     .then((result) => {
       console.log("Đã gửi thông tin thành công !", result.text);
-      alert("Chúng tôi sẽ sớm trả lời câu hỏi của bạn");
+      // alert("Chúng tôi sẽ sớm trả lời câu hỏi của bạn");
     })
 
     .catch((error) => {
@@ -54,8 +54,36 @@ popUpMessBtn.addEventListener("click", () => {
     });
 
   // Ẩn popup và reset dữ liệu
-  popUpMessDaddy.style.display = "none";
   selectedQuestion = "";
   mainInputReq.value = ""; // Xóa nội dung input sau khi gửi
   popUpMessEmail.value = ""; // Xóa email sau khi gửi
+
+  // DOM popup__message
+
+  const messSucsses = document.querySelector(".popup__message");
+  messSucsses.innerHTML =
+    "<h4> Chúng tôi sẽ sớm trả lời câu hỏi của bạn !</h4>";
+  setTimeout(() => {
+    popUpMessDaddy.style.display = "none";
+  }, 1500);
+});
+
+// đoạn code fix lỗi hiển thị layout
+let lastScrollTop = 0;
+const elements = document.querySelectorAll(
+  ".main__req__3, .main__req__4, .main__req__5"
+);
+
+window.addEventListener("scroll", function () {
+  let scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+  if (scrollTop > lastScrollTop) {
+    // Nếu cuộn xuống → Ẩn đi
+    elements.forEach((el) => (el.style.opacity = "1"));
+  } else {
+    // Nếu cuộn lên → Hiện lại
+    elements.forEach((el) => (el.style.opacity = "0"));
+  }
+
+  lastScrollTop = scrollTop;
 });
