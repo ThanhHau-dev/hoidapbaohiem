@@ -54,18 +54,18 @@ popUpMessBtn.addEventListener("click", () => {
     });
 
   // Ẩn popup và reset dữ liệu
-  selectedQuestion = "";
-  mainInputReq.value = ""; // Xóa nội dung input sau khi gửi
-  popUpMessEmail.value = ""; // Xóa email sau khi gửi
-
   // DOM popup__message
 
   const messSucsses = document.querySelector(".popup__message");
   messSucsses.innerHTML =
     "<h4> Chúng tôi sẽ sớm trả lời câu hỏi của bạn !</h4>";
   setTimeout(() => {
+   location.reload();
     popUpMessDaddy.style.display = "none";
   }, 1500);
+  selectedQuestion = "";
+  mainInputReq.value = ""; // Xóa nội dung input sau khi gửi
+  popUpMessEmail.value = ""; // Xóa email sau khi gửi
 });
 
 // đoạn code fix lỗi hiển thị layout
